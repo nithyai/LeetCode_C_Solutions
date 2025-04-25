@@ -1,0 +1,11 @@
+int jump(int* nums, int n) {
+    int max=0,jump=0,count=0;
+    for(int i=0;i<n-1;i++){
+        max=(max>(i+nums[i]))?max:(i+nums[i]);
+        if(i==count){
+            jump++;
+            count=max;
+        }
+    }
+    return jump;
+}
