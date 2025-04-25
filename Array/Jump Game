@@ -1,0 +1,17 @@
+int max(int maxc,int num){
+    return (maxc>num)?maxc:num;
+}
+
+bool canJump(int* nums, int n) {
+    int maxc=0;
+    for(int i=0;i<n;i++){
+        if(i>maxc){
+            return false;
+        }
+        maxc=max(maxc,i+nums[i]);
+    }
+    if(maxc>=n-1){
+        return true;
+    }
+    return false;
+}
