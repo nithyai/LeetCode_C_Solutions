@@ -1,0 +1,24 @@
+
+int mini(int a, int b) {
+    return a < b ? a : b;
+}
+
+int maxArea(int* height, int heightSize) {
+    int max_water = 0;
+    int i = 0, j = heightSize - 1;
+
+    while (i < j) {
+        int curr_max = (j - i) * mini(height[i], height[j]);
+        if (max_water < curr_max) {
+            max_water = curr_max;
+        }
+        
+        // Move the pointer pointing to the shorter height
+        if (height[i] < height[j]) {
+            i++;
+        } else {
+            j--;
+        }
+    }
+    return max_water;
+}
